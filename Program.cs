@@ -201,5 +201,40 @@ public class Program
         return score;
     }
 
-    
+    static void ShowFinalResults(int score, int totalQuestions)
+    {
+        Console.Clear();
+        Console.WriteLine("QUIZ COMPLETE!");
+        Console.WriteLine("===================");
+        Console.WriteLine();
+
+        double percentage = (double)score / totalQuestions * 100;
+
+        Console.WriteLine($"Final Score: {score}/{totalQuestions} ({percentage:F1}%)");
+        Console.WriteLine();
+
+        // Fun results based on score
+        if (percentage >= 90)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("INCREDIBLE! You're a trivia master!");
+        }
+        else if (percentage >= 70)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Great job! You know your stuff!");
+        }
+        else if (percentage >= 50)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Not bad! Room for improvement!");
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Time to hit the books!");
+        }
+
+        Console.ResetColor();
+    }
 }
